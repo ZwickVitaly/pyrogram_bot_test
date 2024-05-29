@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "pyrogrambot3-10"
+version = "0.1.0"
+description = ""
+authors = ["ZwickVitaly <zwickvitaly@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "pyrogrambot3"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+psycopg2-binary = "^2.9.9"
+sqlalchemy = "^2.0.30"
+pyrogram = "^2.0.106"
+tgcrypto = "^1.2.5"
+asyncpg = "^0.29.0"
+loguru = "^0.7.2"
+sqlalchemy-utils = "^0.41.2"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
