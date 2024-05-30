@@ -2,7 +2,7 @@ services:
 
   postgres:
     container_name: postgres
-    image: postgres
+    image: dockerhub.timeweb.cloud/library/postgres:latest
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -16,8 +16,8 @@ services:
       - "-c"
       - "log_directory=/tmp/logs"
     volumes:
-      - ./bot_data/database:/var/lib/postgresql/data
-      - ./bot_data/logs/postgres:/var/postgres/logs
+      - ${PWD}/bot_data/database:/var/lib/postgresql/data
+      - ${PWD}/bot_data/logs/postgres:/var/postgres/logs
     env_file:
       - .env
     ports:
@@ -30,14 +30,13 @@ services:
 
   pyro_bot:
     container_name: pyro_bot
+    env_file:
+      - .env
     build:
       dockerfile: Dockerfile
       context: .
     volumes:
       - ${PWD}/bot_data/logs/bot:/bot/logs
-      - ${PWD}/${API_NAME}.session:/bot/${API_NAME}.session
-    env_file:
-      - .env
     depends_on:
       postgres:
         condition: service_healthy

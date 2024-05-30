@@ -1,14 +1,10 @@
 import datetime
 
-from sqlalchemy import (
-    Column,
-    BigInteger,
-)
+from db.base import Base
+from sqlalchemy import BigInteger, Column
 from sqlalchemy.dialects.postgresql import TIMESTAMP
 from sqlalchemy.sql import func
 from sqlalchemy_utils import ChoiceType
-
-from db.base import Base
 
 
 class User(Base):
@@ -28,4 +24,3 @@ class User(Base):
     status_updated_at = Column(
         TIMESTAMP(timezone=True), onupdate=datetime.datetime.now()
     )
-

@@ -164,3 +164,4 @@ cython_debug/
 bot_data/
 
 bot/test_client.session
+test_client.session

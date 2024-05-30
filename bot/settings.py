@@ -1,9 +1,10 @@
-from loguru import logger
 from os import getenv as gtnv
 from pathlib import Path
 
-# from dotenv import load_dotenv
-# load_dotenv()
+from loguru import logger
+
+from dotenv import load_dotenv
+load_dotenv()
 
 
 DEBUG: bool = gtnv("DEBUG") == "1"
@@ -62,6 +63,3 @@ MSG_3_TEXT: str = "Сообщение 3"
 MSG_3_DELAY: int = 26 * 60 * 60
 
 TRIGGER_MESSAGE = "Триггер"
-
-
-
